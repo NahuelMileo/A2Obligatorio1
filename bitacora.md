@@ -16,3 +16,9 @@
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.
+
+## 2026-09-03
+- Se crearon los archivos AVL.h y AVLImp.cpp
+
+## 2026-09-13
+- Se agregaron los metodos del tad en AVL.h
