@@ -8,7 +8,8 @@
 > restricciones de órdenes, indicarlo.
 
 ## Ejercicio 1
-- Sin restricciones de órdenes. / Justificación: ...
+- ALTA y BUSCAR en orden temporal O(logK) en el peor caso: cumple ya que se utiliza un árbol AVL, este se mantiene siempre balanceado por lo que su altura es log K. Insertar y buscar recorren un solo camino hacia abajo.
+- RANGO en orden temporal O(logK+R) en el peor caso: cumple, ya que se visitan los nodos que se imprimen (R) más los del camino para encontrar los bordes del rango. Ese camino mide como mucho la altura del árbol (log K).
 
 ## Ejercicio 2
 - Sin restricciones de órdenes. / Justificación: ...

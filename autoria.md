@@ -8,7 +8,7 @@
 > con comentarios en el código fuente. La omisión de fuentes puede considerarse plagio.
 
 ## Ejercicio 1
-- Utilicé código de la clase del Viernes 21/08
+- Se tomó el código de AVL del [repositorio de clase](https://github.com/Algoritmos2-M4A-2026/clase-01-avl)
 
 ## Ejercicio 2
 - Implementación íntegramente propia, sin fuentes externas.

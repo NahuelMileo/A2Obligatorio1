@@ -22,3 +22,10 @@
 
 ## 2026-09-13
 - Se agregaron los metodos del tad en AVL.h
+
+## 2026-10-07
+- Empecé de cero. Los profesores de práctico dijeron que no era necesario crear archivos .h. Se tomó el código de AVL del [repositorio de clase](https://github.com/Algoritmos2-M4A-2026/clase-01-avl). Se realizó completamente el ejercicio 1.
+
+## 2026-10-12
+- Se completó la justificación del ejercicio 1. Se utilizó IA para entender órdenes y revisar redacción.
+
