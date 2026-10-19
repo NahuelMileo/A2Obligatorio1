@@ -29,3 +29,5 @@
 ## 2026-10-12
 - Se completó la justificación del ejercicio 1. Se utilizó IA para entender órdenes y revisar redacción.
 
+## 2026-10-13
+- Se realizó el ejercició 2 junto con su autoría y justificación.
