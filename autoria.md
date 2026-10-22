@@ -16,7 +16,7 @@
 - Del repositorio [hash-cerrado](https://github.com/Algoritmos2-M4A-2026/clase-02-hash-cerrado) se tomaron los métodos `esPrimo` y `primoSup`.
 
 ## Ejercicio 3
-- Implementación íntegramente propia, sin fuentes externas.
+- Se tomó la clase MinHeap del repositorio [clase-03-heap](https://github.com/Algoritmos2-M4A-2026/clase-03-heap). Se utilizó Claude Code para entender órdenes, detectar bugs y redacción.
 
 ## Ejercicio 4
 - Implementación íntegramente propia, sin fuentes externas.

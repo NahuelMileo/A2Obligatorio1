@@ -18,7 +18,12 @@
 - Orden total lineal en promedio: cumple, ya que cada palabra registrada o consultada cuesta O(L), y la suma de todos los largos es el tamaño total de la entrada.
 
 ## Ejercicio 3
-- Sin restricciones de órdenes. / Justificación: ...
+- Orden temporal O(N log N) en el peor caso: cumple. Se utiliza un min-heap binario sobre un arreglo. Como el heap es un árbol binario completo, su altura es log N, y flotar y hundir recorren a lo sumo esa altura, por lo que insertar y eliminarMinimo son O(log N) en el peor caso.
+  1. Carga: se realizan N inserciones de O(log N) cada una, por lo que la carga es N · O(log N) = O(N log N).
+  2. Consolidación: cada iteración del while ejecuta dos veces eliminarMinimo y una vez insertar, por lo que el heap tiene un elemento menos en cada vuelta. Como pasa de N elementos a 1, el while da N−1 vueltas, cada una O(log N), y la consolidación es (N−1) · O(log N) = O(N log N).
+  En total: O(N log N) + O(N log N) = O(N log N).
+- Orden espacial O(N): cumple. Se utiliza un solo arreglo de long long de tamaño N, que nunca se llena más allá de N porque cada vuelta saca dos elementos y agrega uno. El resto son variables sueltas (a, b, nuevo, costo) que ocupan O(1).
+- El costo total puede superar el rango de un entero de 32 bits: se utilizó long long (64 bits) en la variable costo, en a, b y nuevo, y en el arreglo del heap. No alcanza con el acumulador, porque los archivos consolidados también crecen (el último puede pesar 2·10¹²) y se vuelven a insertar en el heap, así que superarían el rango de un int.
 
 ## Ejercicio 4
 - Sin restricciones de órdenes. / Justificación: ...
