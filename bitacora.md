@@ -1,13 +1,6 @@
 # Bitácora — Obligatorio 1
 
-**Integrantes:** Nombre Apellido (Nº estudiante), Nombre Apellido (Nº estudiante)
-
-> **Instrucciones** (borrar esta sección antes de entregar): agregar una entrada por
-> cada día trabajado, indicando la fecha y quién trabajó (un integrante o "En conjunto").
-> Registrar el proceso real: ideas exploradas, decisiones y su justificación, partes de
-> implementaciones, bugs encontrados y cómo se corrigieron, resultados de pruebas y dudas
-> abiertas. Si se usó IA ese día, indicar herramienta, consulta y qué se hizo con la
-> respuesta. Una bitácora escrita íntegramente el día de la entrega implica pérdida de puntos.
+**Integrantes:** Nahuel Mileo (303552)
 
 ## 2026-10-07
 - Proceso: se tomó como base el AVL del repositorio de la clase 1 y se convirtió en un template, ya que la letra pide un único TAD instanciado una vez por colección. Agregué el método pertenece para poder buscar bajando un solo camino del árbol, O(log K). Se agregó el método rango, que solo baja al subárbol izquierdo si desde < dato y al derecho si dato < hasta, ya que en el resto no puede haber claves dentro del intervalo. Así se visitan el camino hasta los bordes del rango más los R nodos que se imprimen, O(log K + R). Empecé instanciando el árbol de las monedas como int. Al consultar con Claude, me señaló que el número de catálogo llega a 10^12, así que lo cambié a long long. Para las pinturas se utilizó string, ya que el operador < de string da el orden alfabético.
@@ -33,3 +26,10 @@
 - Proceso: por el orden espacial O(V+A) descarté la matriz y utilicé una lista de adyacencia. Como el ejercicio plantea dependencias entre módulos, me decidí por el algoritmo de Kahn. El heap reemplaza a la cola de Kahn, ya que la letra pide el de menor prioridad y, si empatan, el de menor número. Tomé el grafo de la clase 6 de Kahn y lo adapté para el ejercicio. Pensé en convertir el heap existente en template, pero decidí copiarlo y adaptarlo al struct Modulo para no modificar el ejercicio 3.
 - main: con Claude adaptamos el main del ejercicio a partir del main de la clase 6 de Kahn.
 - Pruebas: ejecuté a mano los ejemplos de la letra y Claude probó un caso de V = 5·10⁵ y A = 10⁶.
+
+- Se realizó el ejercicio 5 completo.
+- Proceso: se tomaron el MFSet y el ejemplo de Kruskal del repositorio de la clase 7. Como Kruskal necesita recorrer los senderos de menor a mayor costo, se utilizó un min-heap. Se tomó el MinHeap del ejercicio 4 y se adaptó a la clase Arista (origen, destino y costo), comparando solo por costo. El heap guarda el sendero completo porque al sacar el mínimo hacen falta los dos refugios para consultar el MFSet.
+- MFSet: el de clase unía por tamaño y la letra pide unión por altura, así que se reemplazó el array elementos por altura (un nodo solo arranca con altura 1). En unir, el árbol más bajo se cuelga del más alto sin cambiar la altura, y solo en el empate la raíz que queda arriba suma 1. La compresión de caminos en representante ya venía de clase.
+- main: se adaptó el loop de Kruskal del ejemplo de clase. Se corta al elegir V−1 senderos, el costo total es long long porque puede superar 32 bits, y si no se llega a V−1 senderos se imprime "imposible". El MFSet se crea con V+1 porque los refugios van de 1 a V.
+- Pruebas: ejecuté a mano los 5 ejemplos de la letra y Claude Code ejecutó un caso de V = 10⁵ y E = 10⁶ con costo 10⁶, cuyo resultado supera los 32 bits. Todos pasaron.
+- Uso de IA: Claude Code me ayudó a adaptar el loop de Kruskal del main (señalado con un comentario en ejercicio5.cpp) y generó el código del método unir con unión por altura (señalado con un comentario en MFSet.h).

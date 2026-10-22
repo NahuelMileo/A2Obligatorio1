@@ -1,12 +1,5 @@
 # Justificación de órdenes — Obligatorio 1
 
-> **Instrucciones** (borrar esta sección antes de entregar): para cada ejercicio cuya
-> letra plantea restricciones de órdenes (tiempo o espacio), justificar brevemente por
-> qué la solución cumple, indicando qué estructuras de datos o algoritmos se utilizaron.
-> Ejemplo: "La letra exige inserción en O(log n); usamos un min-heap sobre arreglo,
-> donde flotar/hundir recorren a lo sumo la altura del árbol". Si un ejercicio no tiene
-> restricciones de órdenes, indicarlo.
-
 ## Ejercicio 1
 - ALTA y BUSCAR en orden temporal O(logK) en el peor caso: cumple ya que se utiliza un árbol AVL, este se mantiene siempre balanceado por lo que su altura es log K. Insertar y buscar recorren un solo camino hacia abajo.
 - RANGO en orden temporal O(logK+R) en el peor caso: cumple, ya que se visitan los nodos que se imprimen (R) más los del camino para encontrar los bordes del rango. Ese camino mide como mucho la altura del árbol (log K).
@@ -35,5 +28,11 @@
 - El heap compara primero por prioridad y, si empatan, por número, así que siempre sale el módulo que pide la letra. Si al final se procesaron menos de V módulos hay un ciclo y se imprime "imposible". Como el orden se imprime recién al final, en ese caso no sale ningún módulo.
 
 ## Ejercicio 5
-- Sin restricciones de órdenes. / Justificación: ...
-
+- Orden temporal O(E log E) en el peor caso: cumple. Se utiliza el algoritmo de Kruskal con un min-heap binario de aristas y un MFSet.
+  1. Carga: se realizan E inserciones en el heap. Como el heap es un árbol binario completo, su altura es log E, y flotar recorre a lo sumo esa altura, así que cada inserción es O(log E) y la carga es E · O(log E) = O(E log E).
+  2. Kruskal: el while saca a lo sumo E aristas del heap, cada una con eliminarMinimo en O(log E), así que es O(E log E). Por cada arista se llama a unir, que hace dos llamadas a representante. Con unión por altura, el árbol más bajo se cuelga del más alto y la altura solo crece en el empate, así que la altura de cada árbol del MFSet es a lo sumo log V y representante es O(log V). Además, la compresión de caminos acorta los caminos en cada búsqueda, así que en la práctica cuesta casi O(1) amortizado.
+  3. Para que el grafo sea conexo hace falta E ≥ V−1, así que log V = O(log E), y las llamadas a unir son E · O(log V) = O(E log E).
+  En total: O(E log E) + O(E log E) = O(E log E).
+- Orden espacial O(V+E): cumple. El heap guarda las E aristas en un arreglo, O(E). El MFSet tiene dos arreglos (padre y altura) de tamaño V+1, O(V). El resto son variables sueltas, O(1).
+- El costo total puede superar el rango de un entero de 32 bits: se utilizó long long en costoTotal. Con V−1 = 10⁵−1 senderos de costo 10⁶, el total llega a ~10¹¹. El costo de cada arista se guarda en int porque es como mucho 10⁶.
+- El while corta cuando se eligen V−1 senderos, porque con esa cantidad ya están todos los refugios conectados. Si al terminar se eligieron menos de V−1 senderos, el grafo no es conexo y se imprime "imposible". Con un solo refugio, V−1 = 0, el while no entra y se imprime 0.
