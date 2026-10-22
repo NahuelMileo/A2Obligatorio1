@@ -9,20 +9,20 @@
 > abiertas. Si se usó IA ese día, indicar herramienta, consulta y qué se hizo con la
 > respuesta. Una bitácora escrita íntegramente el día de la entrega implica pérdida de puntos.
 
-## 2026-09-03
-- Se crearon los archivos AVL.h y AVLImp.cpp
-
-## 2026-09-13
-- Se agregaron los metodos del tad en AVL.h
-
 ## 2026-10-07
-- Empecé de cero. Los profesores de práctico dijeron que no era necesario crear archivos .h. Se realizó completamente el ejercicio 1.
+- Proceso: se tomó como base el AVL del repositorio de la clase 1 y se convirtió en un template, ya que la letra pide un único TAD instanciado una vez por colección. Agregué el método pertenece para poder buscar bajando un solo camino del árbol, O(log K). Se agregó el método rango, que solo baja al subárbol izquierdo si desde < dato y al derecho si dato < hasta, ya que en el resto no puede haber claves dentro del intervalo. Así se visitan el camino hasta los bordes del rango más los R nodos que se imprimen, O(log K + R). Empecé instanciando el árbol de las monedas como int. Al consultar con Claude, me señaló que el número de catálogo llega a 10^12, así que lo cambié a long long. Para las pinturas se utilizó string, ya que el operador < de string da el orden alfabético.
+- Pruebas: ejecuté a mano las pruebas de ejemplo de la letra y Claude generó pruebas con números de catálogo cercanos a 10^12.
 
 ## 2026-10-12
 - Se completó la justificación del ejercicio 1. Se utilizó IA para entender órdenes y revisar redacción.
 
 ## 2026-10-13
-- Se realizó el ejercició 2 junto con su autoría y justificación. Se utilizó IA para entender órdenes y revisar redacción.
+- Se tomó como base el hash abierto del repositorio multiestructura, la clase Celda se adaptó como Cajon.
+- Proceso: para identificar el cajón de cada palabra se utiliza una etiqueta. Claude me sugirió que los caracteres de las palabras tienen asociado un número, por lo que se puede rellenar un array de 26 lugares recorriéndolo una sola vez, que cumple O(L) en lugar del sort, que es O(L logL).
+- Anteriormente, cada Celda guardaba un estado, ahora cada Cajon guarda un contador, así que solo un nodo por cajón y no uno por palabra.
+- La función insertar primero busca, si existe hace contador++, si no, agrega el nodo.
+- Los contadores de cajones y cajón más grande se actualizan al insertar, cumpliendo con el orden O(1).
+- Pruebas: se hicieron a mano las 4 pruebas de ejemplo y Claude probó los casos más grandes, todos pasaron sin bugs.
 
 ## 2026-10-21
 - Se realizó el ejercicio 3 junto con su autoría y justificación. Se utilizó IA para entender órdenes, ejecutar pruebas y revisar redacción.
