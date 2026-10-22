@@ -19,7 +19,7 @@
 - Se tomó la clase MinHeap del repositorio [clase-03-heap](https://github.com/Algoritmos2-M4A-2026/clase-03-heap). Se utilizó Claude Code para entender órdenes, detectar bugs y redacción.
 
 ## Ejercicio 4
-- Implementación íntegramente propia, sin fuentes externas.
+- Se tomó el grafo con lista de adyacencia del repositorio [clase-06-kahn](https://github.com/Algoritmos2-M4A-2026/clase-06-kahn). El algoritmo de Kahn del mismo repositorio fue adaptado para utilizar un heap en lugar de la cola. Uso de Claude Code: entender órdenes, detectar bugs, probar casos borde y adaptar el código del algoritmo. Se tomó el código del MinHeap utilizado en el ejercicio 3 y se adaptó para el struct Modulo.
 
 ## Ejercicio 5
 - Implementación íntegramente propia, sin fuentes externas.

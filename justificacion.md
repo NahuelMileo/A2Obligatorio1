@@ -26,7 +26,13 @@
 - El costo total puede superar el rango de un entero de 32 bits: se utilizó long long (64 bits) en la variable costo, en a, b y nuevo, y en el arreglo del heap. No alcanza con el acumulador, porque los archivos consolidados también crecen (el último puede pesar 2·10¹²) y se vuelven a insertar en el heap, así que superarían el rango de un int.
 
 ## Ejercicio 4
-- Sin restricciones de órdenes. / Justificación: ...
+- Orden temporal O((V+A) log V) en el peor caso: cumple. Se utiliza el algoritmo de Kahn sobre una lista de adyacencia, con un min-heap binario en lugar de la cola.
+  1. Lectura: las prioridades son O(V). Cada arista se agrega al grafo en O(1) y en el mismo momento se suma el grado del destino, así que todas las aristas son O(A).
+  2. Heap: cada módulo entra una sola vez (cuando su grado llega a 0) y sale una sola vez. Insertar y eliminarMinimo son O(log V) porque recorren a lo sumo la altura del heap, así que en total es O(V log V).
+  3. Vecinos: cada arista se recorre una sola vez, cuando sale su origen, así que es O(A).
+  En total: O(V + A + V log V), que está dentro de O((V+A) log V).
+- Orden espacial O(V+A): cumple. La lista de adyacencia ocupa O(V+A), y los arreglos prioridad, grado y orden y el heap ocupan O(V) cada uno.
+- El heap compara primero por prioridad y, si empatan, por número, así que siempre sale el módulo que pide la letra. Si al final se procesaron menos de V módulos hay un ciclo y se imprime "imposible". Como el orden se imprime recién al final, en ese caso no sale ningún módulo.
 
 ## Ejercicio 5
 - Sin restricciones de órdenes. / Justificación: ...

@@ -27,3 +27,9 @@
 ## 2026-10-21
 - Se realizó el ejercicio 3 junto con su autoría y justificación. Se utilizó IA para entender órdenes, ejecutar pruebas y revisar redacción.
 - Proceso: empecé usando int, tal cual estaba el MinHeap de clase. Al consultar con Claude, me señaló que tanto el costo total como los archivos consolidados pueden superar 32 bits. Le pregunté la diferencia entre long y long long: long no asegura 64 bits (en Windows, el SO que uso, es de 32 bits; en Linux y Mac es de 64), así que opté por long long. Al probar el código, Claude detectó que el while con !heap.esVacio() quedaba en bucle infinito, porque el heap nunca queda vacío. Lo cambié por heap.tamanio() > 1. También faltaba inicializar costo en 0. Probé con los 5 ejemplos de la letra y, con ayuda de Claude, un caso de N = 2·10⁶.
+
+## 2026-10-22
+- Se realizó el ejercicio 4 completo. Se utilizó IA para entender la letra del ejercicio y las estructuras, entender órdenes, ejecutar pruebas y revisar redacción.
+- Proceso: por el orden espacial O(V+A) descarté la matriz y utilicé una lista de adyacencia. Como el ejercicio plantea dependencias entre módulos, me decidí por el algoritmo de Kahn. El heap reemplaza a la cola de Kahn, ya que la letra pide el de menor prioridad y, si empatan, el de menor número. Tomé el grafo de la clase 6 de Kahn y lo adapté para el ejercicio. Pensé en convertir el heap existente en template, pero decidí copiarlo y adaptarlo al struct Modulo para no modificar el ejercicio 3.
+- main: con Claude adaptamos el main del ejercicio a partir del main de la clase 6 de Kahn.
+- Pruebas: ejecuté a mano los ejemplos de la letra y Claude probó un caso de V = 5·10⁵ y A = 10⁶.
